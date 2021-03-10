@@ -1,38 +1,274 @@
-.App {
-  text-align: center;
-}
+/* App.css */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html{
+  font-size: 62.5%;
+  margin: 0;
+  padding: 0;
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
+  /* background-color:#f3f2f1; */
+
+  /* background-image: url(./developer.jpg); */
+  /* font-size: calc(10px + 2vmin); */
+  /* color: white; */
+  /* position: relative; */
+}
+
+.App-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 80vh;
+  position: relative;
+}
+
+/* header::before {
+  content: "";
+  background-image: url('./background.jpg');
+  background-size: cover;
+   position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.6;
+} */
+
+/* global styles */
+
+h1,
+h2,
+h3,
+h4,
+p{
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  font-size: 8rem;
+  width: 50%;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+h2{
+  font-size: 2rem;
+}
+
+p{
+  font-size: 1.5rem;
+}
+
+a{
+  color: #2557a7;
+  text-decoration: none;
+  outline: none;
+  font-size: 1.5rem;
+}
+
+button{
+  background-color: #164081;
   color: white;
+  margin: 0;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  /* width: 150px; */
+  cursor: pointer;
+  font-size: 1.8rem;
+  transition: all 0.2s ease;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover{
+    box-shadow: 0 .5rem 1rem gray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button a{
+  color: white;
+  font-size: 1.8rem;
+}
+/* navbar component */
+
+.navbar{
+  height: 65px;
+  background-color: black;
+  color: white;
+  position: relative;
+}
+
+.navbar p{
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 20px 0 0 20px;
+}
+
+.navbar img{
+  position: absolute;
+  height: 40px;
+  width: 20px;
+  top: 1rem;
+  left: 16rem;
+}
+
+/* .navbar p::after{
+  content: url(./panda.png);
+} */
+
+
+/* display jobs component */
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.display-jobs{
+  width: 60%;
+  background-color:#f3f2f1;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.display-jobs:hover,
+.display-jobs:focus{
+    box-shadow: 0 .5rem 1rem lightgrey;
+    /* background-color: rgb(201, 179, 179); */
+}
+
+.display-jobs:hover h2 a,
+.display-jobs:focus h2 a{
+  text-decoration: underline;
+}
+
+.display-jobs div:nth-of-type(1){
+  display: flex;
+  justify-content: space-between;
+}
+
+.display-jobs img{
+  height: 25px;
+  width: 25px;
+}
+
+.display-jobs h2 a{
+  font-size: 2rem;
+}
+
+.display-jobs h3{
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+
+.display-jobs p a:hover{
+  text-decoration: underline;
+}
+
+span{
+  font-size: 1.3rem;
+  color: grey;
+  font-weight: bold;
+}
+
+.display-jobs button{
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.display-error{
+  position: absolute;
+  bottom: 20%;
+  padding: 10px;
+  background-color: #fff0ef;
+}
+
+/* form component */
+
+.form-container{
+  width: 100%;
+}
+
+form{
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  /* margin-bottom: 5%; */
+}
+
+form label{
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+form label:nth-of-type(2){
+  margin-left: 10px;
+}
+
+form input,
+form button{
+  border-radius: 10px;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+form button{
+  width: 150px;
+}
+
+form input{
+    width: 20%;
+    font-size: 1.5rem;
+    /* font-weight: bold; */
+    border: 1px solid black;
+    background-color: transparent;
+}
+
+form input:focus{
+  box-shadow: 0 .5rem 1rem lightgrey;
+  outline: none;
+}
+
+/* footer styles */
+footer{
+  /* background-color:#f3f2f1; */
+  color: black;
+  text-align: center;
+  padding: 10px 0;
+}
+
+footer p{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+footer a{
+  color: black;
+  transition: all 0.5s ease;
+}
+
+footer a:hover,
+footer a:focus{
+  /* color:#ea593e; */
+  text-shadow: 0 .5rem 1rem gray;
+}
+
+footer img{
+  width: 30px;
+  height: 30px;
+  /* color: black; */
+  padding: 5px 5px 0;
+  transition: all 0.4s;
+}
+
+footer img:hover{
+  box-shadow: 0 .5rem 1rem gray;
 }
