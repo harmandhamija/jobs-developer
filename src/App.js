@@ -5,7 +5,6 @@ import Navbar from './Navbar.js';
 import Form from './Form.js';
 import DisplayJobs from './DisplayJobs.js';
 import Footer from './Footer.js';
-import Modal from './Modal.js';
 
 function App() {
   const [finalInput, setFinalInput] = useState("");
@@ -27,12 +26,9 @@ function App() {
         where: finalLocation
       }
     }).then(response => {
-      // updating the jobs state with the items from our Api
       response = response.data.results;
-      // console.log(response);
       setJobs(response);
       setIsLoading(false);
-      // console.log(response);
       // setIsLoading(false);
     })
   }, [finalInput,finalLocation])
@@ -43,57 +39,45 @@ function App() {
   }
 
   return (
-    <div className="App">
-        <header className="App-header">
+    <div className="app">
+        <header className="app-header">
           <Navbar />
-
-            <div className = "Wrapper">
-
-              <section className = "App-section">
+            <div className = "wraper">
+              <section className = "app-section">
                 <h1>Search your <i>dream</i> developer job /></h1>
                 <Form getUserInput = {getUserInput} />
               </section>
-
             </div>
-
         </header>
 
       <div className="wrapper">
-
         <main>
-
-            {/* {
-              isLoading 
-              ? <p>Loading...</p>
-              :jobs.length === 0
-              ?<p>Oops.. No results found.. Please check back later</p>
-              :finalInput === "" && finalLocation === ""
-              ? <div className="display-error">
-                  <p>Enter a job title or location to start a search</p>
-                </div>
-              :jobs.map((job) => {
-                  return (
-                  <DisplayJobs
-                    key={job.id}
-                    title={job.title}
-                    datePosted={job.created}
-                    company={job.company.display_name}
-                    description={job.description}
-                    location={job.location.area[2]}
-                    url={job.redirect_url}
-                  />
-                )
-              })
-            } */}
+          {
+          jobs.length === 0
+          ?<p className="error-message">No results found..Please try again or check back later</p>
+          :
+            jobs.map((job) => {
+              return (
+                <DisplayJobs
+                  key={job.id}
+                  title={job.title}
+                  datePosted={job.created}
+                  company={job.company.display_name}
+                  description={job.description}
+                  location={job.location.area[2]}
+                  url={job.redirect_url}
+                />
+              )
+            })
+          }
         </main>
-                  </div>
+      </div>
 
 
         <footer>
-          <div className="wrapper">
-          <Footer />
-
-          </div>
+            <div className="wrapper">
+              <Footer />
+            </div>
         </footer>
     </div>
   );

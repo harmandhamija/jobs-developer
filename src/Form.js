@@ -4,8 +4,6 @@ import {useState} from 'react';
 
 const Form = (props) => {
 
-    // console.log(props);
-
     const [titleInput, setTitleInput] = useState("");
     const [locationInput, setLocationInput] = useState("");
 
@@ -19,10 +17,7 @@ const Form = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // props.jobsInfo(titleInput, locationInput);
-        // console.log(locationInput);
         props.getUserInput(titleInput,locationInput);
-
         setTitleInput("");
         setLocationInput("");
     }
@@ -30,7 +25,6 @@ const Form = (props) => {
     return(
         <div className="form-container">
             <form onSubmit={handleSubmit}>
-
                 <label htmlFor="Enter job role">What</label>
                 <input type="text" name="Enter job role" id="Enter job role" value={titleInput} placeholder="Job Title or Keywords" onChange={handleTitleInput}></input>
 
@@ -38,7 +32,6 @@ const Form = (props) => {
                 <input type="text" name="Enter job role" id="Enter location" value={locationInput} placeholder="Eg : Toronto" onChange={handleLocationInput}></input>
 
                 <button type="submit">Find Jobs</button>
-
             </form>
         </div>
     )

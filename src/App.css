@@ -89,23 +89,23 @@ button a{
 
 /* Header styles */
 
-.App-header {
-  min-height: 83vh;
+.app-header {
+  min-height: 86vh;
 }
 
 /* header::before {
   content: "";
   background-image: url('./background.jpg');
   background-size: cover;
-   position: absolute;
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
-      opacity: 0.6;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.6;
 } */
 
-.App-section {
+.app-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,7 +142,11 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.error-message{
+  text-align: center;
 }
 
 .display-jobs{
@@ -256,10 +260,9 @@ form input:focus{
 footer{
   color: black;
   text-align: center;
-  padding: 10px 0;
 }
 
-footer p{
+footer p a{
     font-size: 1.3rem;
     font-weight: bold;
 }
@@ -301,8 +304,17 @@ footer img:hover{
 /* media queries */
 
 @media (max-width:1000px){
+
+  .app-section{
+    padding-top: 15vh;
+  }
+
   h1{
     width: 80%;
+  }
+
+  main{
+    margin-top: 50px;
   }
 
   .display-jobs{
@@ -335,6 +347,7 @@ footer img:hover{
 }
 
 @media (max-width:775px){
+
   h1{
     width: 95%;
     font-size: 6rem;
