@@ -135,6 +135,7 @@ main{
 .error-message,
 .search-initiate{
   text-align: center;
+  animation: fade-in 1.2s;
 }
 
 .display-jobs{
@@ -145,6 +146,7 @@ main{
   padding: 15px;
   margin: 5px;
   cursor: pointer;
+  animation: fade-in 1.2s;
 }
 
 .display-jobs:hover,
@@ -270,17 +272,14 @@ footer img:focus{
   box-shadow: 0 .5rem 1rem gray;
 }
 
-/* modal styles */
-.modal-container{
-  padding: 50px;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.modal-container form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* media queries */
@@ -357,3 +356,4 @@ footer img:focus{
 
   }
 }
+

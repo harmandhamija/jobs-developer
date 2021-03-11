@@ -19,8 +19,8 @@ function App() {
       url: "https://api.adzuna.com/v1/api/jobs/ca/search/1",
       dataResponse: "JSON",
       params: {
-        app_id: "0a87ec3c",
-        app_key: "68a506ff99b48859a6f78b03a0aa2b94",
+        app_id: "6d239693",
+        app_key: "b59b34989309986dbe049dc5ad54c399",
         results_per_page: 10,
         what: finalInput,
         where: finalLocation
