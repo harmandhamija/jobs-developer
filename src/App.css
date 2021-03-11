@@ -11,6 +11,9 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 
 html{
   font-size: 62.5%;
+  margin: 0;
+  padding: 0;
+  color: black;
 }
 
 body {
@@ -20,6 +23,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.wrapper{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 /* global styles */
@@ -34,8 +43,8 @@ p{
 }
 
 h1{
-  font-size: 8rem;
-  width: 50%;
+  font-size: 7rem;
+  width: 62%;
   margin-bottom: 5%;
   text-align: center;
 }
@@ -67,8 +76,10 @@ button{
   transition: all 0.2s ease;
 }
 
-button:hover{
+button:hover,
+button:focus{
     box-shadow: 0 .5rem 1rem gray;
+    outline: none;
 }
 
 button a{
@@ -79,7 +90,7 @@ button a{
 /* Header styles */
 
 .App-header {
-  min-height: 100vh;
+  min-height: 83vh;
 }
 
 /* header::before {
@@ -98,9 +109,8 @@ button a{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 80vh;
   position: relative;
+  padding-top: 20vh;
 }
 
 /* navbar component */
@@ -136,7 +146,7 @@ main{
 }
 
 .display-jobs{
-  width: 60%;
+  width: 80%;
   background-color:#f3f2f1;
   border: 1px solid black;
   border-radius: 10px;
@@ -174,7 +184,8 @@ main{
   margin-bottom: 10px;
 }
 
-.display-jobs p a:hover{
+.display-jobs p a:hover,
+.display-jobs p a:focus{
   text-decoration: underline;
 }
 
@@ -264,12 +275,90 @@ footer a:focus{
 }
 
 footer img{
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   padding: 5px 5px 0;
   transition: all 0.4s;
 }
 
 footer img:hover{
   box-shadow: 0 .5rem 1rem gray;
+}
+
+/* modal styles */
+.modal-container{
+  padding: 50px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.modal-container form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* media queries */
+
+@media (max-width:1000px){
+  h1{
+    width: 80%;
+  }
+
+  .display-jobs{
+    width: 100%;
+  }
+
+  form{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form input,
+  form label,
+  form button{
+    width: 50%;
+  }
+
+  form input{
+    padding: 15px 10px;
+  }
+
+  form label:first-child{
+    margin-left: 10px;
+  }
+  
+  form button{
+    margin-top: 15px;
+  }
+
+}
+
+@media (max-width:775px){
+  h1{
+    width: 95%;
+    font-size: 6rem;
+  }
+
+  form input,
+  form label,
+  form button{
+    width: 70%;
+  }
+}
+
+@media (max-width:575px) {
+  h1{
+    font-size: 5rem;
+  }
+
+  .wrapper{
+    width: 90%;
+  }
+}
+
+@media (max-width:465px) {
+  h1{font-size:4rem;
+
+  }
 }

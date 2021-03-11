@@ -5,10 +5,11 @@ import Navbar from './Navbar.js';
 import Form from './Form.js';
 import DisplayJobs from './DisplayJobs.js';
 import Footer from './Footer.js';
+import Modal from './Modal.js';
 
 function App() {
-  const [finalInput, setFinalInput] = useState("react");
-  const [finalLocation, setFinalLocation] = useState("Toronto");
+  const [finalInput, setFinalInput] = useState("");
+  const [finalLocation, setFinalLocation] = useState("");
 
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -43,50 +44,57 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Navbar />
+        <header className="App-header">
+          <Navbar />
 
-        <section className = "App-section">
-          <h1>Search your <i>dream</i> developer job /></h1>
-          <Form getUserInput = {getUserInput} />
-        </section>
+            <div className = "Wrapper">
 
-      </header>
+              <section className = "App-section">
+                <h1>Search your <i>dream</i> developer job /></h1>
+                <Form getUserInput = {getUserInput} />
+              </section>
 
-      <main>
+            </div>
 
-          {
-            
-            isLoading 
-            ? <p>Loading...</p>
-            :jobs.length === 0
-            ?<p>Oops.. No results found.. Please check back later</p>
-            :finalInput === "" && finalLocation === ""
-            ? <div className="display-error">
-                <p>Enter a job title or location to start a search</p>
-              </div>
-            : 
-            jobs.map((job) => {
-                return (
-                <DisplayJobs
-                  key={job.id}
-                  title={job.title}
-                  datePosted={job.created}
-                  company={job.company.display_name}
-                  description={job.description}
-                  location={job.location.area[2]}
-                  url={job.redirect_url}
-                />
-              )
-            })
-          }
+        </header>
 
-      </main>
+      <div className="wrapper">
 
-      <footer>
-        <Footer />
-      </footer>
+        <main>
 
+            {/* {
+              isLoading 
+              ? <p>Loading...</p>
+              :jobs.length === 0
+              ?<p>Oops.. No results found.. Please check back later</p>
+              :finalInput === "" && finalLocation === ""
+              ? <div className="display-error">
+                  <p>Enter a job title or location to start a search</p>
+                </div>
+              :jobs.map((job) => {
+                  return (
+                  <DisplayJobs
+                    key={job.id}
+                    title={job.title}
+                    datePosted={job.created}
+                    company={job.company.display_name}
+                    description={job.description}
+                    location={job.location.area[2]}
+                    url={job.redirect_url}
+                  />
+                )
+              })
+            } */}
+        </main>
+                  </div>
+
+
+        <footer>
+          <div className="wrapper">
+          <Footer />
+
+          </div>
+        </footer>
     </div>
   );
 }

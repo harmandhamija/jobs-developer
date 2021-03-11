@@ -6,7 +6,7 @@ import linkedin from './linkedin.svg';
 const Footer = () => {
     return(
         <>
-            <p><a href="https://junocollege.com/" target="_blank">Made by Harman Dhamija @ Juno College</a></p>
+            <p><a href="https://junocollege.com/" target="_blank">Made by Harman Dhamija @ Juno College of Technology</a></p>
         <div className = "social-icons">
 
                 <a href="https://github.com/harrydhamija" target="_blank"><img src={github} alt="Github Logo with link to the profile"></img></a>
