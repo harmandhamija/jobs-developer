@@ -29,7 +29,6 @@ function App() {
       response = response.data.results;
       setJobs(response);
       setIsLoading(false);
-      // setIsLoading(false);
     })
   }, [finalInput,finalLocation])
 
@@ -53,7 +52,11 @@ function App() {
       <div className="wrapper">
         <main>
           {
-          jobs.length === 0
+          finalInput === "" && finalLocation === ""
+          ?<p className="search-initiate">Enter a job title or location to initiate a search</p>
+          :isLoading 
+          ?<p>Loading...</p>
+          :jobs.length === 0
           ?<p className="error-message">No results found..Please try again or check back later</p>
           :
             jobs.map((job) => {
