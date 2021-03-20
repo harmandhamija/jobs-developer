@@ -1,12 +1,11 @@
 // DisplayJobs.js
 import dateformat from 'dateformat';
-import maple from './maple.png';
+import maple from '../assets/maple.png';
 
 const DisplayJobs = (props) => {
 
     const {jobs} = props;
-    // console.log(jobs);
-
+    
     return(
         <section>
             <div className="display-message">

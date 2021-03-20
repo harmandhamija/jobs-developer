@@ -1,5 +1,5 @@
 // Navbar.js
-import panda from './panda.png';
+import panda from '../assets/panda.png';
 import {useState} from 'react';
 
 const Navbar = () => {
@@ -25,11 +25,11 @@ const Navbar = () => {
         <div className= "navbar">
             <p>JobsDeveloper</p>
             <img src={panda} alt="pandaLogo" />
-                {
+                {/* {
                     signIn
                         ?<div className="sign-in"> 
                             <p>Welcome {userName}!</p>
-                            {/* <button onClick={handleSignOut}>Sign Out</button> */}
+                            <button onClick={handleSignOut}>Sign Out</button>
                         </div>
                         :
                         <form onSubmit={handleSubmit}>
@@ -37,7 +37,7 @@ const Navbar = () => {
                             <input type="text" name="Enter name" id="Enter name" onChange={handleUserName} value={userName} placeholder="Enter Name" required></input>
                             <button>SignIn</button>
                         </form>
-                }
+                } */}
         </div>
     )
 }

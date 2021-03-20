@@ -178,11 +178,12 @@ section{
 .search-initiate{
   text-align: center;
   animation: fade-in 1.2s;
+  color: #164081;
 }
 
-.search-initiate{
+/* .search-initiate{
   color: white;
-}
+} */
 
 .loadingBar{
   display: flex;

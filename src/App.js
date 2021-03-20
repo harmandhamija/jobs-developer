@@ -1,10 +1,10 @@
 import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Navbar from './Navbar.js';
-import Form from './Form.js';
-import DisplayJobs from './DisplayJobs.js';
-import Footer from './Footer.js';
+import Navbar from './components/Navbar.js';
+import Form from './components/Form.js';
+import DisplayJobs from './components/DisplayJobs.js';
+import Footer from './components/Footer.js';
 
 function App() {
   const [finalInput, setFinalInput] = useState("");
@@ -63,7 +63,7 @@ function App() {
               <div></div>
           </div>
           :jobs.length === 0
-          ?<p className="error-message">No results found..Please try again or check back later</p>
+          ?<p className="error-message">No results found..Please try again or check back later!</p>
           :<DisplayJobs jobs = {jobs} finalInput = {finalInput} finalLocation = {finalLocation}/>
           }
         </main>
