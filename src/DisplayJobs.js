@@ -4,24 +4,40 @@ import maple from './maple.png';
 
 const DisplayJobs = (props) => {
 
-    const regex = /(<([^>]+)>)/ig;
-    const description = props.description.replace(regex, "");
-    const title = props.title.replace(regex, "");
-
-    const dateFormat = dateformat(props.datePosted, "mmm dS, yyyy");
-    const datePosted = dateFormat;
+    const {jobs} = props;
+    // console.log(jobs);
 
     return(
-        <div className="display-jobs">
-            <div>
-                <h2><a href={props.url} target="_blank">{title}</a></h2>
-                <img src={maple} alt="maple leaf logo"/>
+        <section>
+            <div className="display-message">
+                <p>Currently displaying results for '<strong>{props.finalInput}</strong>' in '<strong>{props.finalLocation}</strong>'</p>
             </div>
-            <p><span>{datePosted}</span></p>
-            <h3>{props.company} • {props.location}</h3>
-            <p>{description} <a href={props.url} target="_blank">See More</a></p>
-            <button><a href={props.url} target="_blank">Apply Now</a></button>
-        </div>
+            
+            {
+                jobs.map((job) => {
+
+                    const regex = /(<([^>]+)>)/ig;
+                    const description = job.description.replace(regex, "");
+                    const title = job.title.replace(regex, "");
+                    const dateFormat = dateformat(job.created, "mmm dS, yyyy");
+                    const datePosted = dateFormat;
+
+                    return(
+                        <div className = "display-jobs" key={job.id}>
+                            <div>
+                                <h2><a href={job.redirect_url} target="_blank">{title}</a></h2>
+                                <img src={maple} alt="maple leaf logo" />
+                            </div>
+
+                            <p><span>{datePosted}</span></p>
+                            <h3>{job.company.display_name} • {job.location.area[2]}</h3>
+                            <p>{description} <a href={job.url} target="_blank">See More</a></p>
+                            <button><a href={job.url} target="_blank">Apply Now</a></button>
+                        </div>
+                    )
+                })
+            }
+        </section>
     )
 }
 

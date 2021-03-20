@@ -29,6 +29,8 @@ function App() {
       response = response.data.results;
       setJobs(response);
       setIsLoading(false);
+    }).catch(error => {
+      alert("No data received.Please try again later!");
     })
   }, [finalInput,finalLocation])
 
@@ -43,8 +45,8 @@ function App() {
           <Navbar />
             <div className = "wraper">
               <section className = "app-section">
-                <h1>Search your <i>dream</i> developer job /></h1>
-                <Form getUserInput = {getUserInput} />
+                <h1>Search your <i>dream</i> developer job /</h1>
+                <Form getUserInput = {getUserInput} setIsloading = {setIsLoading}/>
               </section>
             </div>
         </header>
@@ -52,30 +54,20 @@ function App() {
       <div className="wrapper">
         <main>
           {
-          finalInput === "" && finalLocation === ""
-          ?<p className="search-initiate">Enter a job title or location to initiate a search</p>
+          finalInput === "" || finalLocation === ""
+          ?<p className="search-initiate">Enter a job title & location to initiate a search</p>
           :isLoading 
-          ?<p>Loading...</p>
+          ? <div className='loadingBar'>
+              <div></div>
+              <div></div>
+              <div></div>
+          </div>
           :jobs.length === 0
           ?<p className="error-message">No results found..Please try again or check back later</p>
-          :
-            jobs.map((job) => {
-              return (
-                <DisplayJobs
-                  key={job.id}
-                  title={job.title}
-                  datePosted={job.created}
-                  company={job.company.display_name}
-                  description={job.description}
-                  location={job.location.area[2]}
-                  url={job.redirect_url}
-                />
-              )
-            })
+          :<DisplayJobs jobs = {jobs} finalInput = {finalInput} finalLocation = {finalLocation}/>
           }
         </main>
       </div>
-
 
         <footer>
             <div className="wrapper">

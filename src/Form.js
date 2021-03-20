@@ -18,6 +18,7 @@ const Form = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         props.getUserInput(titleInput,locationInput);
+        props.setIsloading(true);
         setTitleInput("");
         setLocationInput("");
     }
@@ -26,10 +27,10 @@ const Form = (props) => {
         <div className="form-container">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="Enter job role">What</label>
-                <input type="text" name="Enter job role" id="Enter job role" value={titleInput} placeholder="Job Title or Keywords" onChange={handleTitleInput}></input>
+                <input type="text" name="Enter job role" id="Enter job role" value={titleInput} placeholder="Job Title or Keywords" onChange={handleTitleInput} required></input>
 
                 <label htmlFor="Enter location">Where</label>
-                <input type="text" name="Enter job role" id="Enter location" value={locationInput} placeholder="Eg : Toronto" onChange={handleLocationInput}></input>
+                <input type="text" name="Enter location" id="Enter location" value={locationInput} placeholder="Eg : Toronto" onChange={handleLocationInput} required></input>
 
                 <button type="submit">Find Jobs</button>
             </form>

@@ -46,6 +46,7 @@ h1{
   width: 62%;
   margin-bottom: 5%;
   text-align: center;
+  /* text-shadow: 0 .5rem 1rem gray; */
 }
 
 h2{
@@ -67,7 +68,7 @@ button{
   background-color: #164081;
   color: white;
   margin: 0;
-  padding: 10px;
+  /* padding: 10px; */
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -107,12 +108,48 @@ button a{
   background-color: black;
   color: white;
   position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar button{
+  /* font-size: 2rem;
+  font-weight: bold;
+  background-color: black; */
+  border: 1px solid white;
+  background-color: black;
+  width: 100px;
+  padding: 0;
+  /* height: 50px; */
+}
+
+.navbar input{
+  padding: 0;
+  margin: 0;
+  color: black;
+  /* background-color:pink; */
+  /* width: 500px; */
+}
+
+.sign-in{
+  display: flex;
+  justify-content: space-between;
+}
+
+.sign-in p {
+  margin-right: 20px;
 }
 
 .navbar p{
   font-size: 2rem;
   font-weight: bold;
-  padding: 20px 0 0 20px;
+  margin-top: 20px ;
+}
+
+.navbar p:nth-of-type(1){
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 20px;
 }
 
 .navbar img{
@@ -126,16 +163,56 @@ button a{
 /* display jobs component styles */
 
 main{
+  margin-bottom: 30px;
+  /* height: 60vh;
+  overflow-y: scroll; */
+}
+
+section{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
 }
 
 .error-message,
 .search-initiate{
   text-align: center;
   animation: fade-in 1.2s;
+}
+
+.search-initiate{
+  color: white;
+}
+
+.loadingBar{
+  display: flex;
+  justify-content: center;
+}
+
+.loadingBar div{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.loadingBar div:nth-child(1){
+  animation: loadingDiv1 0.7s infinite;
+}
+
+.loadingBar div:nth-child(2){
+  animation: loadingDiv2 0.7s infinite;
+}
+
+.loadingBar div:nth-child(3){
+  animation: loadingDiv3 0.7s infinite;
+}
+
+.display-message{
+  width: 80%;
+  /* text-align: left; */
+  font-style: italic;
+  padding-left: 5px;
 }
 
 .display-jobs{
@@ -204,7 +281,6 @@ form{
   display: flex;
   justify-content: center;
   font-size: 2rem;
-  /* margin-bottom: 5%; */
 }
 
 form label{
@@ -231,7 +307,11 @@ form input{
     width: 20%;
     font-size: 1.5rem;
     border: 1px solid black;
-    background-color: transparent;
+    /* background-color: transparent; */
+}
+
+form input:required{
+  box-shadow: none;
 }
 
 form input:focus{
@@ -282,6 +362,33 @@ footer img:focus{
   }
 }
 
+@keyframes loadingDiv1 {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes loadingDiv2 {
+    0%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes loadingDiv3 {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0.5);
+    }
+}
+
 /* media queries */
 
 @media (max-width:1000px){
@@ -298,7 +405,8 @@ footer img:focus{
     margin-top: 50px;
   }
 
-  .display-jobs{
+  .display-jobs,
+  .display-message{
     width: 100%;
   }
 
