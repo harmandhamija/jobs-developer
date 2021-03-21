@@ -5,13 +5,19 @@ import Navbar from './components/Navbar.js';
 import Form from './components/Form.js';
 import DisplayJobs from './components/DisplayJobs.js';
 import Footer from './components/Footer.js';
+import Modal from './components/Modal';
 
 function App() {
+  
+  const [ showModal, setShowModal ] = useState(true);
+  const [ modalUserName, setModalUserName] = useState("");
+
   const [finalInput, setFinalInput] = useState("");
   const [finalLocation, setFinalLocation] = useState("");
 
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  
 
   useEffect(() => {
     axios({
@@ -19,8 +25,8 @@ function App() {
       url: "https://api.adzuna.com/v1/api/jobs/ca/search/1",
       dataResponse: "JSON",
       params: {
-        app_id: "6d239693",
-        app_key: "b59b34989309986dbe049dc5ad54c399",
+        app_id: "0a87ec3c",
+        app_key: "68a506ff99b48859a6f78b03a0aa2b94",
         results_per_page: 10,
         what: finalInput,
         where: finalLocation
@@ -31,6 +37,7 @@ function App() {
       setIsLoading(false);
     }).catch(error => {
       alert("No data received.Please try again later!");
+      setIsLoading(false);
     })
   }, [finalInput,finalLocation])
 
@@ -39,10 +46,15 @@ function App() {
     setFinalLocation(location);
   }
 
+  const getModalState = (modalState, userName) => {
+    setShowModal(modalState);
+    setModalUserName(userName);
+  }
+
   return (
     <div className="app">
         <header className="app-header">
-          <Navbar />
+          <Navbar modalState = {showModal} userName = {modalUserName}/>
             <div className = "wraper">
               <section className = "app-section">
                 <h1>Search your <i>dream</i> developer job /</h1>
@@ -53,18 +65,24 @@ function App() {
 
       <div className="wrapper">
         <main>
+
+          {showModal
+            ?<Modal getModalState = {getModalState} />
+            :null
+          }
+
           {
           finalInput === "" || finalLocation === ""
-          ?<p className="search-initiate">Enter a job title & location to initiate a search</p>
-          :isLoading 
-          ? <div className='loadingBar'>
-              <div></div>
-              <div></div>
-              <div></div>
-          </div>
-          :jobs.length === 0
-          ?<p className="error-message">No results found..Please try again or check back later!</p>
-          :<DisplayJobs jobs = {jobs} finalInput = {finalInput} finalLocation = {finalLocation}/>
+            ?<p className="search-initiate">Enter a job title & location to initiate a search</p>
+            :isLoading 
+            ? <div className='loadingBar'>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            :jobs.length === 0
+            ?<p className="error-message">No results found..Please try again or check back later!</p>
+            :<DisplayJobs jobs = {jobs} finalInput = {finalInput} finalLocation = {finalLocation}/>
           }
         </main>
       </div>

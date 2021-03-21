@@ -131,25 +131,20 @@ button a{
   /* width: 500px; */
 }
 
-.sign-in{
-  display: flex;
-  justify-content: space-between;
-}
-
-.sign-in p {
-  margin-right: 20px;
-}
-
 .navbar p{
   font-size: 2rem;
   font-weight: bold;
   margin-top: 20px ;
 }
 
-.navbar p:nth-of-type(1){
+.navbar p{
   font-size: 2rem;
   font-weight: bold;
   margin-left: 20px;
+}
+
+.navbar p:nth-of-type(2){
+  margin-right: 20px;
 }
 
 .navbar img{
@@ -267,9 +262,19 @@ span{
   font-weight: bold;
 }
 
-.display-jobs button{
+.apply-save{
+  display: flex;
+  justify-content: space-between;
+}
+
+.apply-save button{
   margin-top: 10px;
-  padding: 10px;
+  padding: 5px 10px;
+  font-size: 1.5rem;
+}
+
+.apply-save button a{
+  font-size: 1.5rem;
 }
 
 /* form component styles */
@@ -351,6 +356,80 @@ footer img{
 footer img:hover,
 footer img:focus{
   box-shadow: 0 .5rem 1rem gray;
+}
+
+/* modal styles */
+.modal{
+  height: 50vh;
+  width: 40vw;
+  background-color: #e1dddd;
+  /* color: white; */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+  top: 25%;
+  left: 30%;
+  opacity: 0.9;
+}
+
+.modal form,
+.sign-in{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.modal form input{
+  width: 50%;
+  margin-top: 20px;
+  margin-left: 0;
+  text-align: center;
+}
+
+.modal form button,
+.sign-in button{
+  width: 35%;
+  background-color: black;
+  margin-top: 20px;
+  margin-left: 0;
+  font-size: 1.5rem;
+}
+
+.modal form h3,
+.modal form button,
+.sign-in button{
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.modal form img{
+  height: 35px;
+  width: 25px;
+}
+
+.sign-in p {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.modal-backdrop{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background-color: rgba(0,0,0,0.5);
 }
 
 /* animations */
