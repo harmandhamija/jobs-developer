@@ -1,6 +1,5 @@
 // Navbar.js
 import panda from '../assets/panda.png';
-import {useState} from 'react';
 
 const Navbar = (props) => {
 

@@ -1,6 +1,4 @@
 // Modal.js
-import panda from '../assets/panda.png';
-
 import { useState } from 'react';
 
 const Modal = (props) => {
@@ -37,10 +35,9 @@ const Modal = (props) => {
 
                     :<form onSubmit={handleSubmit}>
                         <p>Welcome to JobsDeveloper </p>
-                        {/* <img src={panda} alt="pandaLogo" /> */}
                         <label htmlFor="Enter name" className="sr-only">Enter Name</label>
                         <input type="text" name="Enter name" id="Enter name" onChange={handleUserName} value={userName} placeholder="Enter Name" required maxLength = "10"></input>
-                        <button>SignIn</button>
+                        <button>Sign in</button>
                     </form>
                 }
 

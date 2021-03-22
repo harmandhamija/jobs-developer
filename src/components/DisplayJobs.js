@@ -1,31 +1,12 @@
 // DisplayJobs.js
 import dateformat from 'dateformat';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import maple from '../assets/maple.png';
-import firebase from './firebase';
 
 const DisplayJobs = (props) => {
 
     const {jobs} = props;
 
-    const [ savedJobs, setSavedJobs ] = useState([]);
-
-    useEffect( () => {
-
-        const dbRef = firebase.database().ref();
-
-        dbRef.on('value', (data) => {
-            const firebaseData = data.val();
-            console.log(firebaseData);
-        })
-
-    }, [])
-
-    const addToFirebase = () => {
-        console.log("Adding to firebase");
-    }
-    
-    
     return(
         <section>
             <div className="display-message">
@@ -54,7 +35,6 @@ const DisplayJobs = (props) => {
 
                             <div className="apply-save">
                                 <button><a href={job.url} target="_blank">Apply Now</a></button>
-                                <button onClick = {addToFirebase}>Save</button>
                             </div>
                         </div>
                     )
