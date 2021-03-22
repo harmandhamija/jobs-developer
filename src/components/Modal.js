@@ -31,15 +31,15 @@ const Modal = (props) => {
                 {
                     !modalForm
                     ?<div className = "sign-in">
-                        <p>Welcome {userName}! Good luck for your job searching!</p>
+                        <p>Welcome {userName}! Good luck for your job hunting!</p>
                         <button onClick = {handleClick}>Go to Website</button>
                     </div>
 
                     :<form onSubmit={handleSubmit}>
-                        <h3>Welcome to JobsDeveloper </h3>
+                        <p>Welcome to JobsDeveloper </p>
                         {/* <img src={panda} alt="pandaLogo" /> */}
                         <label htmlFor="Enter name" className="sr-only">Enter Name</label>
-                        <input type="text" name="Enter name" id="Enter name" onChange={handleUserName} value={userName} placeholder="Enter Name" required ></input>
+                        <input type="text" name="Enter name" id="Enter name" onChange={handleUserName} value={userName} placeholder="Enter Name" required maxLength = "10"></input>
                         <button>SignIn</button>
                     </form>
                 }

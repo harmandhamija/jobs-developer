@@ -54,10 +54,14 @@ function App() {
   return (
     <div className="app">
         <header className="app-header">
+          {showModal
+            ? <Modal getModalState={getModalState} />
+            : null
+          }
           <Navbar modalState = {showModal} userName = {modalUserName}/>
             <div className = "wraper">
               <section className = "app-section">
-                <h1>Search your <i>dream</i> developer job /</h1>
+                <h1>Search your <i>dream</i> developer job /></h1>
                 <Form getUserInput = {getUserInput} setIsloading = {setIsLoading}/>
               </section>
             </div>
@@ -65,12 +69,6 @@ function App() {
 
       <div className="wrapper">
         <main>
-
-          {showModal
-            ?<Modal getModalState = {getModalState} />
-            :null
-          }
-
           {
           finalInput === "" || finalLocation === ""
             ?<p className="search-initiate">Enter a job title & location to initiate a search</p>

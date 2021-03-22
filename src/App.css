@@ -68,12 +68,26 @@ button{
   background-color: #164081;
   color: white;
   margin: 0;
-  /* padding: 10px; */
   border: none;
   border-radius: 10px;
   cursor: pointer;
   font-size: 1.8rem;
   transition: all 0.2s ease;
+}
+
+form input{
+  border: none;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+form input:required{
+  box-shadow: none;
+}
+
+form input:focus{
+  box-shadow: 0 .5rem 1rem lightgrey;
+  outline: none;
 }
 
 button:hover,
@@ -110,25 +124,7 @@ button a{
   position: relative;
   display: flex;
   justify-content: space-between;
-}
-
-.navbar button{
-  /* font-size: 2rem;
-  font-weight: bold;
-  background-color: black; */
-  border: 1px solid white;
-  background-color: black;
-  width: 100px;
-  padding: 0;
-  /* height: 50px; */
-}
-
-.navbar input{
-  padding: 0;
-  margin: 0;
-  color: black;
-  /* background-color:pink; */
-  /* width: 500px; */
+  /* align-items: center; */
 }
 
 .navbar p{
@@ -137,14 +133,14 @@ button a{
   margin-top: 20px ;
 }
 
-.navbar p{
-  font-size: 2rem;
-  font-weight: bold;
+.navbar p:nth-of-type(1){
   margin-left: 20px;
 }
 
 .navbar p:nth-of-type(2){
   margin-right: 20px;
+  padding-top: 3px;
+  font-size: 1.7rem;
 }
 
 .navbar img{
@@ -176,10 +172,6 @@ section{
   color: #164081;
 }
 
-/* .search-initiate{
-  color: white;
-} */
-
 .loadingBar{
   display: flex;
   justify-content: center;
@@ -206,7 +198,6 @@ section{
 
 .display-message{
   width: 80%;
-  /* text-align: left; */
   font-style: italic;
   padding-left: 5px;
 }
@@ -283,46 +274,35 @@ span{
   width: 100%;
 }
 
-form{
+.form-container form{
   display: flex;
   justify-content: center;
   font-size: 2rem;
 }
 
-form label{
+.form-container label{
   padding: 10px 0;
   font-weight: bold;
 }
 
-form label:nth-of-type(2){
+.form-container label:nth-of-type(2){
   margin-left: 10px;
 }
 
-form input,
-form button{
-  border-radius: 10px;
+.form-container form input,
+.form-container form button{
   margin-left: 10px;
   padding: 10px;
 }
 
-form button{
+.form-container form button{
   width: 150px;
 }
 
-form input{
+.form-container form input{
     width: 20%;
     font-size: 1.5rem;
-    border: 1px solid black;
     /* background-color: transparent; */
-}
-
-form input:required{
-  box-shadow: none;
-}
-
-form input:focus{
-  box-shadow: 0 .5rem 1rem lightgrey;
-  outline: none;
 }
 
 /* footer component styles */
@@ -363,7 +343,6 @@ footer img:focus{
   height: 50vh;
   width: 40vw;
   background-color: #e1dddd;
-  /* color: white; */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -376,31 +355,25 @@ footer img:focus{
   opacity: 0.9;
 }
 
+.modal-backdrop{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+
 .modal form,
 .sign-in{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
+  width: 100%;
 }
 
-.modal form input{
-  width: 50%;
-  margin-top: 20px;
-  margin-left: 0;
-  text-align: center;
-}
-
-.modal form button,
-.sign-in button{
-  width: 35%;
-  background-color: black;
-  margin-top: 20px;
-  margin-left: 0;
-  font-size: 1.5rem;
-}
-
-.modal form h3,
+.modal form p,
 .modal form button,
 .sign-in button{
   background-color: black;
@@ -410,26 +383,37 @@ footer img:focus{
   text-align: center;
 }
 
-.modal form img{
-  height: 35px;
-  width: 25px;
+.modal form p{
+  font-size: 2rem;
+  font-weight: bold;
+  width: 60%;
 }
 
-.sign-in p {
+.modal form input{
+  width: 40%;
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+.modal form input:focus{
+  box-shadow: 0 .5rem 1rem grey;
+}
+
+.modal form button,
+.sign-in button{
+  width: 25%;
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+.sign-in p{
   margin-top: 20px;
   text-align: center;
   font-size: 1.8rem;
   font-weight: bold;
-}
-
-.modal-backdrop{
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  background-color: rgba(0,0,0,0.5);
+  padding: 10px;
 }
 
 /* animations */
@@ -471,6 +455,21 @@ footer img:focus{
 
 /* media queries */
 
+@media (max-width: 1152px){
+
+  .modal form p{
+    width: 70%;
+  }
+
+  .modal form input{
+    width: 45%;
+  }
+
+  .sign-in button{
+    width: 30%;
+  }
+}
+
 @media (max-width:1000px){
 
   .app-section{
@@ -479,6 +478,15 @@ footer img:focus{
 
   h1{
     width: 80%;
+  }
+
+  .modal{
+    width: 50vw;
+    left: 25%;
+  }
+
+  .modal form p{
+    font-size: 1.9rem;
   }
 
   main{
@@ -490,26 +498,26 @@ footer img:focus{
     width: 100%;
   }
 
-  form{
+  .form-container form{
     flex-direction: column;
     align-items: center;
   }
 
-  form input,
-  form label,
-  form button{
+  .form-container form input,
+  .form-container form label,
+  .form-container form button{
     width: 50%;
   }
 
-  form input{
+  .form-container form input{
     padding: 15px 10px;
   }
 
-  form label:first-child{
+  .form-container form label:first-child{
     margin-left: 10px;
   }
   
-  form button{
+  .form-container form button{
     margin-top: 15px;
   }
 
@@ -522,9 +530,14 @@ footer img:focus{
     font-size: 6rem;
   }
 
-  form input,
-  form label,
-  form button{
+  .modal{
+    width: 70vw;
+    left: 15%;
+  }
+
+  .form-container form input,
+  .form-container form label,
+  .form-container form button{
     width: 70%;
   }
 }
@@ -534,14 +547,87 @@ footer img:focus{
     font-size: 5rem;
   }
 
+  .modal{
+    width: 80vw;
+    left: 10%;
+  }
+
+  .modal form p{
+    width: 75%;
+  }
+
+  .modal form input{
+    width: 50%;
+  }
+
+  .modal form button{
+    width: 30%;
+  }
+
+  .sign-in button{
+    width: 40%;
+  }
+
+  .navbar p:nth-of-type(1){
+    margin-left: 10px;
+  }
+
+  .navbar img{
+    left: 15rem;
+  }
+
+  .navbar p:nth-of-type(2){
+    margin-right: 10px;
+  }
+
+  .navbar p:nth-of-type(2){
+    font-size: 1.5rem;
+  }
+
+  .navbar p:nth-of-type(2){
+    margin-top: 22px;
+  }
+
+
   .wrapper{
     width: 90%;
   }
 }
 
 @media (max-width:465px) {
-  h1{font-size:4rem;
 
+  h1{
+    font-size:4rem;
   }
+
+  .modal{
+    width: 90vw;
+    left: 5%;
+  }
+
+  .modal form p{
+    width: 80%;
+  }
+
+  .modal form input{
+    width: 60%;
+  }
+
+  .modal form button{
+    width: 35%;
+  }
+
+}
+
+@media(max-width:375px) {
+
+  .navbar p:nth-of-type(2){
+    visibility: hidden;
+  }
+
+  h1{
+    font-size: 3.4rem;
+  }
+
 }
 
