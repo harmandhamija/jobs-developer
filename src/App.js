@@ -12,8 +12,8 @@ function App() {
   const [ showModal, setShowModal ] = useState(true);
   const [ modalUserName, setModalUserName] = useState("");
 
-  const [finalInput, setFinalInput] = useState("");
-  const [finalLocation, setFinalLocation] = useState("");
+  const [finalInput, setFinalInput] = useState("front-end developer");
+  const [finalLocation, setFinalLocation] = useState("Toronto");
 
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,8 +25,8 @@ function App() {
       url: "https://api.adzuna.com/v1/api/jobs/ca/search/1",
       dataResponse: "JSON",
       params: {
-        app_id: "0a87ec3c",
-        app_key: "68a506ff99b48859a6f78b03a0aa2b94",
+        app_id: "6d239693",
+        app_key: "b59b34989309986dbe049dc5ad54c399",
         results_per_page: 10,
         what: finalInput,
         where: finalLocation
@@ -70,16 +70,16 @@ function App() {
       <div className="wrapper">
         <main>
           {
-          finalInput === "" || finalLocation === ""
-            ?<p className="search-initiate">Enter a job title & location to initiate a search</p>
-            :isLoading 
-            ? <div className='loadingBar'>
-                <div></div>
-                <div></div>
-                <div></div>
+            isLoading 
+            ?<div className='loadingBar'>
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
             :jobs.length === 0
-            ?<p className="error-message">No results found..Please try again or check back later!</p>
+            ?<div className = "error-message">
+              <p>No results found..Please try again or check back later!</p>
+            </div>
             :<DisplayJobs jobs = {jobs} finalInput = {finalInput} finalLocation = {finalLocation}/>
           }
         </main>
