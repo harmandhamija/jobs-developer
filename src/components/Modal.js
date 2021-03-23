@@ -29,7 +29,7 @@ const Modal = (props) => {
                 {
                     !modalForm
                     ?<div className = "sign-in">
-                            <p>Welcome {userName}👋. Good luck for your job hunt!</p>
+                        <p>Welcome {userName}👋. Good luck for your Job hunt!</p>
                         <button onClick = {handleClick}>Go to Website</button>
                     </div>
 

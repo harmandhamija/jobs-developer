@@ -150,6 +150,20 @@ button a{
   left: 16rem;
 }
 
+.navbar button{
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  height: 43px;
+  margin: 12px 20px 0 0;
+  font-size: 1.7rem;
+}
+
+.navbar button:hover,
+.navbar button:focus{
+  box-shadow: 0 .5rem 1rem lightgray;
+}
+
 /* display jobs component styles */
 
 main{
@@ -267,12 +281,8 @@ span{
 
 .apply-save button{
   margin-top: 10px;
-  padding: 5px 10px;
-  font-size: 1.5rem;
-}
-
-.apply-save button a{
-  font-size: 1.5rem;
+  padding: 10px;
+  width: 150px;
 }
 
 /* form component styles */
@@ -370,6 +380,11 @@ footer img:focus{
   left: 0;
   top: 0;
   background-color: rgba(0,0,0,0.6);
+}
+
+.modal-welcome img{
+  height: 25px;
+  width: 25px;
 }
 
 .modal form,
@@ -579,20 +594,21 @@ footer img:focus{
     margin-left: 10px;
   }
 
+  .navbar
+
   .navbar img{
     left: 15rem;
   }
 
-  .navbar p:nth-of-type(2){
+  /*.navbar p:nth-of-type(2){
     margin-right: 10px;
-  }
-
-  .navbar p:nth-of-type(2){
-    font-size: 1.5rem;
-  }
-
-  .navbar p:nth-of-type(2){
     margin-top: 22px;
+    font-size: 1.5rem;
+  } */
+
+  .navbar button{
+    margin-right: 10px;
+    font-size: 1.5rem;
   }
 
   .wrapper{
@@ -625,11 +641,18 @@ footer img:focus{
 
 }
 
-@media(max-width:375px) {
-
-  .navbar p:nth-of-type(2){
+@media(max-width:410px) {
+  .navbar button{
     visibility: hidden;
   }
+
+}
+
+@media(max-width:375px) {
+
+  /* .navbar p:nth-of-type(2){
+    visibility: hidden;
+  } */
 
   h1{
     font-size: 3.4rem;

@@ -10,7 +10,7 @@ const Navbar = (props) => {
                 
                 {
                     !props.modalState
-                    ?<p>Welcome {props.userName}!</p>
+                    ? <button>Welcome {props.userName}!</button>
                     :null
                 }
         </div>
