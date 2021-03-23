@@ -1,11 +1,11 @@
 // DisplayJobs.js
 import dateformat from 'dateformat';
-import maple from './maple.png';
+import { useState, useEffect } from 'react';
+import maple from '../assets/maple.png';
 
 const DisplayJobs = (props) => {
 
     const {jobs} = props;
-    // console.log(jobs);
 
     return(
         <section>
@@ -32,7 +32,10 @@ const DisplayJobs = (props) => {
                             <p><span>{datePosted}</span></p>
                             <h3>{job.company.display_name} • {job.location.area[2]}</h3>
                             <p>{description} <a href={job.url} target="_blank">See More</a></p>
-                            <button><a href={job.url} target="_blank">Apply Now</a></button>
+
+                            <div className="apply-save">
+                                <button><a href={job.url} target="_blank">Apply Now</a></button>
+                            </div>
                         </div>
                     )
                 })
