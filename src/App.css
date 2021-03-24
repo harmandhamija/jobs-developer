@@ -370,6 +370,7 @@ footer img:focus{
   top: 25%;
   left: 30%;
   opacity: 0.9;
+  animation: fade-in 0.8s;
 }
 
 .modal-backdrop{
