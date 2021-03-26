@@ -6,6 +6,9 @@ import Form from './components/Form.js';
 import DisplayJobs from './components/DisplayJobs.js';
 import Footer from './components/Footer.js';
 import Modal from './components/Modal';
+import SavedJobs from './components/SavedJobs';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import firebase from './components/firebase.js';
 
 function App() {
   
@@ -17,7 +20,8 @@ function App() {
 
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+
+  const dbRef = firebase.database().ref();
 
   useEffect(() => {
     axios({
@@ -52,45 +56,49 @@ function App() {
   }
 
   return (
-    <div className="app">
-        <header className="app-header">
-          {showModal
-            ? <Modal getModalState={getModalState} />
-            : null
-          }
-          <Navbar modalState = {showModal} userName = {modalUserName}/>
-            <div className = "wraper">
-              <section className = "app-section">
-                <h1>Search your <i>dream</i> developer job /></h1>
-                <Form getUserInput = {getUserInput} setIsloading = {setIsLoading}/>
-              </section>
-            </div>
-        </header>
+    <Router>
+      <div className="app">
+          <header className="app-header">
+            {showModal
+              ? <Modal getModalState={getModalState} />
+              : null
+            }
+            <Navbar modalState = {showModal} userName = {modalUserName}/>
 
-      <div className="wrapper">
-        <main>
-          {
-            isLoading 
-            ?<div className='loadingBar'>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            :jobs.length === 0
-            ?<div className = "error-message">
-              <p>No results found..Please try again or check back later!</p>
-            </div>
-            :<DisplayJobs jobs = {jobs} finalInput = {finalInput} finalLocation = {finalLocation}/>
-          }
-        </main>
+            <Route path = "/" exact>
+              <Form getUserInput={getUserInput} setIsloading={setIsLoading} />
+            </Route>
+          </header>
+
+        <div className="wrapper">
+          <main>
+            {
+              isLoading 
+              ?<div className='loadingBar'>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+              :jobs.length === 0
+              ?<div className = "error-message">
+                <p>No results found..Please try again or check back later!</p>
+              </div>
+              :<Route path="/" exact>
+                <DisplayJobs jobs={jobs} finalInput={finalInput} finalLocation={finalLocation} dbRef={dbRef} />
+              </Route>
+            }
+            <Route path="/savedjobs" exact component={SavedJobs} />
+
+          </main>
+        </div>
+
+          <footer>
+              <div className="wrapper">
+                <Footer />
+              </div>
+          </footer>
       </div>
-
-        <footer>
-            <div className="wrapper">
-              <Footer />
-            </div>
-        </footer>
-    </div>
+    </Router>
   );
 }
 

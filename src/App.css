@@ -126,21 +126,32 @@ button a{
   justify-content: space-between;
 }
 
+.navbar a{
+  color: white;
+}
+
 .navbar p{
   font-size: 2rem;
   font-weight: bold;
   margin-top: 20px ;
-}
-
-.navbar p:nth-of-type(1){
   margin-left: 20px;
+  transition: all 0.2s;
 }
 
-.navbar p:nth-of-type(2){
+.navbar p:hover,
+.navbar p:focus{
+  text-shadow: 0 1rem 1rem lightgray;
+}
+
+/* .navbar p:nth-of-type(1){
+  margin-left: 20px;
+} */
+
+/* .navbar p:nth-of-type(2){
   margin-right: 20px;
   padding-top: 3px;
   font-size: 1.7rem;
-}
+} */
 
 .navbar img{
   position: absolute;
@@ -174,6 +185,7 @@ section{
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 50vh;
 }
 
 .error-message{
@@ -276,14 +288,46 @@ span{
 
 .apply-save{
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  align-items: flex-end;
+  margin-top: 10px;
 }
 
 .apply-save button{
-  margin-top: 10px;
-  padding: 10px;
-  width: 150px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  /* width: 120px; */
 }
+
+.apply-save button a{
+  font-size: 1.6rem;
+}
+
+.apply-save p,
+.is-saved a{
+  color: #164081;
+  font-size: 1.6rem;
+  transition: all 0.5s ease;
+}
+
+.apply-save p:hover,
+.apply-save p:focus,
+.is-saved a:hover,
+.is-saved a:focus{
+  text-shadow: 0 .5rem 1rem gray;
+}
+
+.is-saved{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+  background-color: #e3e3e3;
+  padding: 15px 10px;
+}
+
+/* .is-saved a:hover{
+  transition: all 0.5s ease;
+} */
 
 /* form component styles */
 
@@ -370,7 +414,7 @@ footer img:focus{
   top: 25%;
   left: 30%;
   opacity: 0.9;
-  animation: fade-in 0.8s;
+  animation: fade-in 1s;
 }
 
 .modal-backdrop{
@@ -437,6 +481,16 @@ footer img:focus{
   font-size: 1.8rem;
   font-weight: bold;
   padding: 10px;
+}
+
+/* savedJobs component styles */
+
+.saved-jobs{
+  height: 70vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* animations */
@@ -591,11 +645,9 @@ footer img:focus{
     width: 40%;
   }
 
-  .navbar p:nth-of-type(1){
+  .navbar p{
     margin-left: 10px;
   }
-
-  .navbar
 
   .navbar img{
     left: 15rem;
@@ -645,6 +697,14 @@ footer img:focus{
 @media(max-width:410px) {
   .navbar button{
     visibility: hidden;
+  }
+
+  .navbar p{
+    margin-left: 20px;
+  }
+
+  .navbar img{
+    left: 16rem;
   }
 
 }

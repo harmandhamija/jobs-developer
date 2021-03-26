@@ -1,11 +1,9 @@
 // DisplayJobs.js
-import dateformat from 'dateformat';
-import { useState, useEffect } from 'react';
-import maple from '../assets/maple.png';
+import JobCard from './JobCard';
 
 const DisplayJobs = (props) => {
 
-    const {jobs} = props;
+    const {jobs, dbRef} = props;
 
     return(
         <section>
@@ -16,27 +14,14 @@ const DisplayJobs = (props) => {
             {
                 jobs.map((job) => {
 
-                    const regex = /(<([^>]+)>)/ig;
-                    const description = job.description.replace(regex, "");
-                    const title = job.title.replace(regex, "");
-                    const dateFormat = dateformat(job.created, "mmm dS, yyyy");
-                    const datePosted = dateFormat;
+                    // const regex = /(<([^>]+)>)/ig;
+                    // const description = job.description.replace(regex, "");
+                    // const title = job.title.replace(regex, "");
+                    // const dateFormat = dateformat(job.created, "mmm dS, yyyy");
+                    // const datePosted = dateFormat;
 
                     return(
-                        <div className = "display-jobs" key={job.id}>
-                            <div>
-                                <h2><a href={job.redirect_url} target="_blank">{title}</a></h2>
-                                <img src={maple} alt="maple leaf logo" />
-                            </div>
-
-                            <p><span>{datePosted}</span></p>
-                            <h3>{job.company.display_name} • {job.location.area[2]}</h3>
-                            <p>{description} <a href={job.url} target="_blank">See More</a></p>
-
-                            <div className="apply-save">
-                                <button><a href={job.url} target="_blank">Apply Now</a></button>
-                            </div>
-                        </div>
+                        <JobCard job={job} key={job.id} dbRef = {dbRef} showSaveButtons/>
                     )
                 })
             }

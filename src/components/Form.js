@@ -24,17 +24,20 @@ const Form = (props) => {
     }
 
     return(
-        <div className="form-container">
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="Enter job role">What</label>
-                <input type="text" name="Enter job role" id="Enter job role" value={titleInput} placeholder="Job Title or Keywords" onChange={handleTitleInput} required></input>
+        <section className="app-section">
+            <h1>Search your <i>dream</i> developer job /></h1>
+            <div className="form-container">
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="Enter job role">What</label>
+                    <input type="text" name="Enter job role" id="Enter job role" value={titleInput} placeholder="Job Title or Keywords" onChange={handleTitleInput} required></input>
 
-                <label htmlFor="Enter location">Where</label>
-                <input type="text" name="Enter location" id="Enter location" value={locationInput} placeholder="Eg : Toronto" onChange={handleLocationInput} required></input>
+                    <label htmlFor="Enter location">Where</label>
+                    <input type="text" name="Enter location" id="Enter location" value={locationInput} placeholder="Eg : Toronto" onChange={handleLocationInput} required></input>
 
-                <button type="submit">Find Jobs</button>
-            </form>
-        </div>
+                    <button type="submit">Find Jobs</button>
+                </form>
+            </div>
+        </section>
     )
 }
 
