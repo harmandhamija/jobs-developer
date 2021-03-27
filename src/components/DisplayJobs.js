@@ -13,13 +13,6 @@ const DisplayJobs = (props) => {
             
             {
                 jobs.map((job) => {
-
-                    // const regex = /(<([^>]+)>)/ig;
-                    // const description = job.description.replace(regex, "");
-                    // const title = job.title.replace(regex, "");
-                    // const dateFormat = dateformat(job.created, "mmm dS, yyyy");
-                    // const datePosted = dateFormat;
-
                     return(
                         <JobCard job={job} key={job.id} dbRef = {dbRef} showSaveButtons/>
                     )
