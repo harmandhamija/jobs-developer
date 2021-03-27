@@ -22,15 +22,15 @@ const SavedJobs = () => {
                 dbState.push(data[jobInfo]);
             }
 
-            setSavedJobs(dbState.reverse().slice(0, 5));
+            setSavedJobs(dbState.reverse().slice(0, 10));
         })
     }, []);
     
     return(
 
-        <section>
+        <section className = "saved-jobs-container">
             <div className="display-message">
-                <h2>Saved Jobs</h2>
+                <h2>Recently Saved Jobs</h2>
             </div>
             {
                 savedJobs.map((savedJob) => {

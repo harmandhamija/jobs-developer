@@ -303,18 +303,8 @@ span{
   font-size: 1.6rem;
 }
 
-.apply-save p,
-.is-saved a{
-  color: #164081;
-  font-size: 1.6rem;
-  transition: all 0.5s ease;
-}
-
-.apply-save p:hover,
-.apply-save p:focus,
-.is-saved a:hover,
-.is-saved a:focus{
-  text-shadow: 0 .5rem 1rem gray;
+.apply-save p{
+  padding-bottom: 3px;
 }
 
 .is-saved{
@@ -323,6 +313,22 @@ span{
   margin-top: 20px;
   background-color: #e3e3e3;
   padding: 15px 10px;
+}
+
+.apply-save p,
+.is-saved a{
+  color: #164081;
+  font-size: 1.6rem;
+  transition: all 0.5s ease;
+  font-weight: bold;
+}
+
+.apply-save p:hover,
+.apply-save p:focus,
+.is-saved p a:hover,
+.is-saved p a:focus{
+  text-shadow: 0 .5rem 1rem gray;
+  text-decoration: none;
 }
 
 /* .is-saved a:hover{
@@ -485,12 +491,11 @@ footer img:focus{
 
 /* savedJobs component styles */
 
-.saved-jobs{
-  height: 70vh;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.saved-jobs-container{
+  /* height: 70vh; */
+  margin-top: -68vh;
+  /* height: 72vh;
+  overflow-y: scroll; */
 }
 
 /* animations */
