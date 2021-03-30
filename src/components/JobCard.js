@@ -3,7 +3,7 @@
 import dateformat from 'dateformat';
 import maple from '../assets/maple.png';
 import {Link} from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 
 const JobCard = ({job, dbRef, showSaveButtons}) => {
 
@@ -18,6 +18,11 @@ const JobCard = ({job, dbRef, showSaveButtons}) => {
     const savedToFirebase = () => {
         dbRef.push(job);
         setIsSaved(true);
+    }
+
+    const removeJob = () => {
+        dbRef.child(job.id).remove();
+        console.log("deleted");
     }
 
     return(

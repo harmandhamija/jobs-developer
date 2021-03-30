@@ -35,7 +35,7 @@ const SavedJobs = () => {
             {
                 savedJobs.map((savedJob) => {
                     return (
-                        <JobCard job={savedJob} key={savedJob.id} dbRef={dbRef} />
+                        <JobCard job={savedJob} key={savedJob.id} dbRef={dbRef}/>
                     )
                 })
             }
