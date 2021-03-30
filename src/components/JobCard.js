@@ -7,13 +7,13 @@ import { useState } from 'react/cjs/react.development';
 
 const JobCard = ({job, dbRef, showSaveButtons}) => {
 
+    const [ isSaved, setIsSaved] = useState(false);
+
     const regex = /(<([^>]+)>)/ig;
     const description = job.description.replace(regex, "");
     const title = job.title.replace(regex, "");
     const dateFormat = dateformat(job.created, "mmm dS, yyyy");
     const datePosted = dateFormat;
-
-    const [ isSaved, setIsSaved] = useState(false);
 
     const savedToFirebase = () => {
         dbRef.push(job);
