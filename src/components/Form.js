@@ -34,7 +34,7 @@ const Form = (props) => {
                     <input type="text" name="Enter job role" id="Enter job role" value={titleInput} placeholder="Job Title or Keywords" onChange={handleTitleInput} required></input>
 
                     <label htmlFor="Enter location">Where</label>
-                    <input type="text" name="Enter location" id="Enter location" value={locationInput} placeholder="Eg : Toronto" onChange={handleLocationInput} required></input>
+                    <input type="text" name="Enter location" id="Enter location" value={locationInput} placeholder="Eg : Toronto" onChange={handleLocationInput}></input>
 
                     <button type="submit">Find Jobs</button>
                 </form>

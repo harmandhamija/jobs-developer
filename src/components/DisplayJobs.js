@@ -8,7 +8,11 @@ const DisplayJobs = (props) => {
     return(
         <section>
             <div className="display-message">
-                <p>Currently displaying results for '<strong>{finalInput}</strong>' in '<strong>{finalLocation}</strong>'</p>
+                {
+                    finalLocation === ""
+                    ?<p>Currently displaying results for '<strong>{finalInput}</strong>' in '<strong>Canada</strong>'</p>
+                    :<p>Currently displaying results for '<strong>{finalInput}</strong>' in '<strong>{finalLocation}</strong>'</p>
+                }
             </div>
             
             {

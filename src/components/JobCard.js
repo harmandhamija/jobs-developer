@@ -31,16 +31,16 @@ const JobCard = (props) => {
     return(
         <div className="display-jobs" key={job.id}>
             <div>
-                <h2><a href={job.redirect_url} target="_blank">{title}</a></h2>
+                <h2><a href={job.redirect_url} target="_blank" rel="noopener noreferrer">{title}</a></h2>
                 <img src={maple} alt="maple leaf logo" />
             </div>
 
             <p><span>{datePosted}</span></p>
             <h3>{job.company.display_name} • {job.location.area[2]}</h3>
-            <p>{description} <a href={job.redirect_url} target="_blank">See More</a></p>
+            <p>{description} <a href={job.redirect_url} target="_blank" rel="noopener noreferrer">See More</a></p>
 
             <div className="apply-save">
-                <button><a href={job.redirect_url} target="_blank">Apply Now</a></button>
+                <button><a href={job.redirect_url} target="_blank" rel="noopener noreferrer">Apply Now</a></button>
                 {
                     showSaveButtons && (
                         <p onClick={savedToFirebase}>Save job</p>
@@ -54,10 +54,10 @@ const JobCard = (props) => {
             </div>
             {
                 isSaved
-                    ? <div className = "is-saved">
+                    ?<div className = "is-saved">
                         <p>Added to <Link to = "/savedjobs">Saved list</Link>.</p>
                     </div>
-                    : null
+                    :null
             }
         </div>
     )

@@ -15,8 +15,8 @@ function App() {
   const [ showModal, setShowModal ] = useState(true);
   const [ modalUserName, setModalUserName] = useState("");
 
-  const [finalInput, setFinalInput] = useState("front-end developer");
-  const [finalLocation, setFinalLocation] = useState("Toronto");
+  const [finalInput, setFinalInput] = useState("Front-end developer");
+  const [finalLocation, setFinalLocation] = useState("Canada");
 
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

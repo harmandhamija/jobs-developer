@@ -46,7 +46,6 @@ h1{
   width: 62%;
   margin-bottom: 5%;
   text-align: center;
-  /* text-shadow: 0 .5rem 1rem gray; */
 }
 
 h2{
@@ -135,23 +134,13 @@ button a{
   font-weight: bold;
   margin-top: 20px ;
   margin-left: 20px;
-  transition: all 0.2s;
+  transition: all 0.3s;
 }
 
 .navbar p:hover,
 .navbar p:focus{
   text-shadow: 0 1rem 1rem lightgray;
 }
-
-/* .navbar p:nth-of-type(1){
-  margin-left: 20px;
-} */
-
-/* .navbar p:nth-of-type(2){
-  margin-right: 20px;
-  padding-top: 3px;
-  font-size: 1.7rem;
-} */
 
 .navbar img{
   position: absolute;
@@ -288,7 +277,6 @@ span{
 
 .apply-save{
   display: flex;
-  /* justify-content: space-between; */
   align-items: flex-end;
   margin-top: 10px;
 }
@@ -296,7 +284,6 @@ span{
 .apply-save button{
   margin-right: 10px;
   padding: 10px 20px;
-  /* width: 120px; */
 }
 
 .apply-save button a{
@@ -330,10 +317,6 @@ span{
   text-shadow: 0 .5rem 1rem gray;
   text-decoration: none;
 }
-
-/* .is-saved a:hover{
-  transition: all 0.5s ease;
-} */
 
 /* form component styles */
 
@@ -500,6 +483,11 @@ footer img:focus{
   box-shadow: 0 .5rem 0.5rem lightgray;
 }
 
+.display-message h2{
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
 .saved-jobs{
   display: flex;
   justify-content: center;
@@ -545,7 +533,6 @@ footer img:focus{
 /* media queries */
 
 @media (max-width: 1152px){
-
   .modal form p{
     width: 70%;
   }
@@ -560,7 +547,6 @@ footer img:focus{
 }
 
 @media (max-width:1000px){
-
   .app-section{
     padding-top: 15vh;
   }
@@ -613,7 +599,6 @@ footer img:focus{
 }
 
 @media (max-width:775px){
-
   h1{
     width: 95%;
     font-size: 6rem;
@@ -665,12 +650,6 @@ footer img:focus{
     left: 15rem;
   }
 
-  /*.navbar p:nth-of-type(2){
-    margin-right: 10px;
-    margin-top: 22px;
-    font-size: 1.5rem;
-  } */
-
   .navbar button{
     margin-right: 10px;
     font-size: 1.5rem;
@@ -682,7 +661,6 @@ footer img:focus{
 }
 
 @media (max-width:465px) {
-
   h1{
     font-size:4rem;
   }
@@ -722,11 +700,6 @@ footer img:focus{
 }
 
 @media(max-width:375px) {
-
-  /* .navbar p:nth-of-type(2){
-    visibility: hidden;
-  } */
-
   h1{
     font-size: 3.4rem;
   }
