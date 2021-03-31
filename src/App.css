@@ -218,6 +218,7 @@ section{
   width: 80%;
   font-style: italic;
   padding-left: 5px;
+  display: flex;
 }
 
 .display-jobs{
@@ -488,6 +489,18 @@ footer img:focus{
   margin-bottom: 20px;
 }
 
+.display-message a{
+  margin-left: 20px;
+  transition: all 0.3s ease ;
+  font-weight: bold;
+  padding-top: 3px;
+}
+
+.display-message a:hover,
+.display-message a:focus{
+  text-shadow: 0 .5rem 1rem gray;
+}
+
 .saved-jobs{
   display: flex;
   justify-content: center;
@@ -702,6 +715,14 @@ footer img:focus{
 @media(max-width:375px) {
   h1{
     font-size: 3.4rem;
+  }
+
+  .display-message h2{
+    font-size: 1.7rem;
+  }
+
+  .display-message a p{
+    font-size: 1.4rem;
   }
 
 }

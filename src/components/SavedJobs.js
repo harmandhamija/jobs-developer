@@ -1,6 +1,7 @@
 // SavedJobs.js
 
 import {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import firebase from './firebase.js';
 import JobCard from './JobCard.js';
 
@@ -24,7 +25,7 @@ const SavedJobs = () => {
                         data: data[jobKey]
                     });
             }
-            setSavedJobs(dbState.reverse().slice(0, 5));
+            setSavedJobs(dbState.reverse().slice(0, 10));
         })
     }, [dbRef]);
     
@@ -33,6 +34,7 @@ const SavedJobs = () => {
         <section className = "saved-jobs-container">
             <div className="display-message">
                 <h2>Recently Saved Jobs</h2>
+                <Link to="/"><p>Back to Results</p></Link>
             </div>
             {
                 savedJobs.map((savedJob) => {
