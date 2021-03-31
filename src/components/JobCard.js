@@ -1,11 +1,15 @@
 // JobCard.js
 
-import dateformat from 'dateformat';
-import maple from '../assets/maple.png';
-import {Link} from 'react-router-dom';
+// Required Packages
 import { useState } from 'react';
+import dateformat from 'dateformat';
+import { Link } from 'react-router-dom';
+// Custom assets
+import maple from '../assets/maple.png';
 
-const JobCard = ({job, dbRef, showSaveButtons}) => {
+const JobCard = (props) => {
+
+    const { job, dbRef, uniqueId, showSaveButtons, showDeleteButton } =  props;
 
     const [ isSaved, setIsSaved] = useState(false);
 
@@ -21,8 +25,7 @@ const JobCard = ({job, dbRef, showSaveButtons}) => {
     }
 
     const removeJob = () => {
-        dbRef.child(job.id).remove();
-        console.log("deleted");
+        dbRef.child(uniqueId).remove();
     }
 
     return(
@@ -42,6 +45,11 @@ const JobCard = ({job, dbRef, showSaveButtons}) => {
                     showSaveButtons && (
                         <p onClick={savedToFirebase}>Save job</p>
                     )
+                }
+                {
+                    showDeleteButton && (
+                        <p onClick={removeJob}>Remove</p>
+                        )
                 }
             </div>
             {

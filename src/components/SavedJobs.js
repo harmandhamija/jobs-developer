@@ -18,13 +18,15 @@ const SavedJobs = () => {
 
             const data = response.val();
 
-            for( let jobInfo in data) {
-                dbState.push(data[jobInfo]);
+            for( let jobKey in data) {
+                dbState.push(
+                    {   uniqueId: jobKey,
+                        data: data[jobKey]
+                    });
             }
-
-            setSavedJobs(dbState.reverse().slice(0, 10));
+            setSavedJobs(dbState.reverse().slice(0, 5));
         })
-    }, []);
+    }, [dbRef]);
     
     return(
 
@@ -35,7 +37,9 @@ const SavedJobs = () => {
             {
                 savedJobs.map((savedJob) => {
                     return (
-                        <JobCard job={savedJob} key={savedJob.id} dbRef={dbRef}/>
+                        <div className="saved-jobs" key={savedJob.uniqueId}>
+                        <JobCard job={savedJob.data} key={savedJob.id} uniqueId={savedJob.uniqueId} dbRef={dbRef} showDeleteButton/>
+                        </div>
                     )
                 })
             }

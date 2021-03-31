@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom';
 
 const Navbar = (props) => {
 
+    const { modalState, userName} = props;
+
     return(
         <div className= "navbar">
             <Link to = "/"><div className="title-logo">
@@ -12,8 +14,8 @@ const Navbar = (props) => {
             </div>
             </Link>
                 {
-                    !props.modalState
-                    ? <button>Welcome {props.userName}!</button>
+                    !modalState
+                    ? <button>Welcome {userName}!</button>
                     :null
                 }
         </div>

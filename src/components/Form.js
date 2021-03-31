@@ -4,6 +4,8 @@ import {useState} from 'react';
 
 const Form = (props) => {
 
+    const { getUserInput, setIsloading } = props;
+
     const [titleInput, setTitleInput] = useState("");
     const [locationInput, setLocationInput] = useState("");
 
@@ -17,8 +19,8 @@ const Form = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.getUserInput(titleInput,locationInput);
-        props.setIsloading(true);
+        getUserInput(titleInput,locationInput);
+        setIsloading(true);
         setTitleInput("");
         setLocationInput("");
     }

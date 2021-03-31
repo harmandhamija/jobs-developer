@@ -3,12 +3,12 @@ import JobCard from './JobCard';
 
 const DisplayJobs = (props) => {
 
-    const {jobs, dbRef} = props;
+    const { jobs, dbRef, finalLocation, finalInput } = props;
 
     return(
         <section>
             <div className="display-message">
-                <p>Currently displaying results for '<strong>{props.finalInput}</strong>' in '<strong>{props.finalLocation}</strong>'</p>
+                <p>Currently displaying results for '<strong>{finalInput}</strong>' in '<strong>{finalLocation}</strong>'</p>
             </div>
             
             {
