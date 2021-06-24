@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 const Navbar = (props) => {
 
-    const { modalState, userName} = props;
+    const { showModal, modalUserName } = props;
 
     return(
         <div className= "navbar">
@@ -14,8 +14,8 @@ const Navbar = (props) => {
             </div>
             </Link>
                 {
-                    !modalState
-                    ? <button>Welcome {userName}!</button>
+                    !showModal
+                    ? <button>Welcome {modalUserName}!</button>
                     :null
                 }
         </div>

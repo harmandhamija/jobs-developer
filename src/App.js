@@ -49,21 +49,17 @@ function App() {
     setFinalInput(title);
     setFinalLocation(location);
   }
-
-  const getModalState = (modalState, userName) => {
-    setShowModal(modalState);
-    setModalUserName(userName);
-  }
+  // function to receive title & location input from form component.
 
   return (
     <Router>
       <div className="app">
           <header className="app-header">
             {showModal
-              ? <Modal getModalState={getModalState} />
+              ? <Modal setShowModal={setShowModal} setModalUserName={setModalUserName} />
               : null
             }
-            <Navbar modalState = {showModal} userName = {modalUserName}/>
+            <Navbar showModal = {showModal} modalUserName = {modalUserName}/>
 
             <Route path = "/" exact>
               <Form getUserInput={getUserInput} setIsloading={setIsLoading} />
